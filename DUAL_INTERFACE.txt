@@ -1,0 +1,51 @@
+╔════════════════════════════════════════════════════════════════════════════════════════════════╗
+║                         CoinTrack - Dual Interface Support                                     ║
+╚════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+┌─────────────────────────────────────┬──────────────────────────────────────────────────────────┐
+│          CLI MODE                   │                  GUI MODE                                │
+│   (Command Line Interface)          │           (Graphical Interface)                          │
+├─────────────────────────────────────┼──────────────────────────────────────────────────────────┤
+│                                     │                                                          │
+│  $ python main.py                   │  $ python main.py --gui                                  │
+│                                     │                                                          │
+│  ================================    │  ╔════════════════════════════════════════════════════╗ │
+│  CoinTrack - Top 20 Cryptos         │  ║  CoinTrack - Top 20 Cryptocurrencies              ║ │
+│  Updated: 2026-01-09 11:50:00       │  ║  Last Updated: 2026-01-09 11:50:00                ║ │
+│  ================================    │  ╠════════════════════════════════════════════════════╣ │
+│  Rank Name        Symbol Price      │  ║ Interval: [60] [Start] [Refresh] Status: Idle    ║ │
+│  ──────────────────────────────────  │  ╠════════════════════════════════════════════════════╣ │
+│  1    Bitcoin     BTC    $45,000.50 │  ║ Rank│Name      │Symbol│Price      │24h Change    ║ │
+│  2    Ethereum    ETH    $2,800.75  │  ║ ────┼──────────┼──────┼───────────┼─────────────  ║ │
+│  3    Tether      USDT   $1.00      │  ║  1  │Bitcoin   │BTC   │$45,000.50 │+2.50% ▲      ║ │
+│  4    Binance Coin BNB   $320.45    │  ║  2  │Ethereum  │ETH   │$2,800.75  │-1.20% ▼      ║ │
+│  5    Solana      SOL    $105.30    │  ║  3  │Tether    │USDT  │$1.00      │+0.01% ▲      ║ │
+│  ...                                │  ║ ... │...       │...   │...        │...           ║ │
+│  20   Uniswap     UNI    $6.80      │  ║  20 │Uniswap   │UNI   │$6.80      │-2.35% ▼      ║ │
+│                                     │  ║     │          │ [Scrollbar]                      ║ │
+│  Next update in 60 seconds...       │  ╠════════════════════════════════════════════════════╣ │
+│                                     │  ║        Data source: CoinGecko API                 ║ │
+│                                     │  ╚════════════════════════════════════════════════════╝ │
+│                                     │                                                          │
+│  Features:                          │  Features:                                               │
+│  • Live terminal updates            │  • Interactive table view                                │
+│  • Text-based display               │  • Start/Stop buttons                                    │
+│  • Works over SSH                   │  • Configurable refresh                                  │
+│  • Lightweight                      │  • Color-coded changes                                   │
+│  • No GUI dependencies              │  • Modern interface                                      │
+│                                     │  • One-click refresh                                     │
+│  Commands:                          │                                                          │
+│  python main.py         (live)      │  Usage:                                                  │
+│  python main.py -r 30   (30sec)     │  python main.py -g                                       │
+│  python main.py --once  (single)    │  python main.py --gui                                    │
+│                                     │                                                          │
+└─────────────────────────────────────┴──────────────────────────────────────────────────────────┘
+
+Both interfaces share the same core functionality:
+  ✓ Fetch top 20 cryptocurrencies by market cap from CoinGecko API
+  ✓ Display price, market cap, volume, and 24h change
+  ✓ Auto-refresh with configurable intervals
+  ✓ Real-time data updates
+  ✓ Error handling and recovery
+
+Choose the interface that works best for your environment!
