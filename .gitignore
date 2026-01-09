@@ -42,3 +42,4 @@ Thumbs.db
 
 # Test files
 test_tracker.py
+test_gui.py

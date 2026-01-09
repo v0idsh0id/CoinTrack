@@ -16,6 +16,12 @@ def main():
     )
     
     parser.add_argument(
+        '-g', '--gui',
+        action='store_true',
+        help='Launch GUI mode (default: CLI mode)'
+    )
+    
+    parser.add_argument(
         '-r', '--refresh',
         type=int,
         default=60,
@@ -25,24 +31,30 @@ def main():
     parser.add_argument(
         '-o', '--once',
         action='store_true',
-        help='Fetch data once and exit (no live tracking)'
+        help='Fetch data once and exit (no live tracking, CLI only)'
     )
     
     args = parser.parse_args()
     
-    tracker = CryptoTracker()
-    
-    if args.once:
-        # Fetch and display once, then exit
-        print("Fetching cryptocurrency data...\n")
-        cryptos = tracker.fetch_top_cryptos()
-        if cryptos:
-            tracker.display_cryptos(cryptos)
-        else:
-            print("Failed to fetch data.")
+    if args.gui:
+        # Launch GUI mode
+        from gui import run_gui
+        run_gui()
     else:
-        # Run live tracker with auto-refresh
-        tracker.run_live_tracker(refresh_interval=args.refresh)
+        # Run CLI mode
+        tracker = CryptoTracker()
+        
+        if args.once:
+            # Fetch and display once, then exit
+            print("Fetching cryptocurrency data...\n")
+            cryptos = tracker.fetch_top_cryptos()
+            if cryptos:
+                tracker.display_cryptos(cryptos)
+            else:
+                print("Failed to fetch data.")
+        else:
+            # Run live tracker with auto-refresh
+            tracker.run_live_tracker(refresh_interval=args.refresh)
 
 
 if __name__ == "__main__":
