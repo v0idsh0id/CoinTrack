@@ -5,6 +5,7 @@ Live cryptocurrency price tracker for the top 20 cryptocurrencies.
 """
 
 import argparse
+import sys
 from crypto_tracker import CryptoTracker
 
 
@@ -38,8 +39,17 @@ def main():
     
     if args.gui:
         # Launch GUI mode
-        from gui import run_gui
-        run_gui()
+        try:
+            from gui import run_gui
+            run_gui()
+        except ImportError as e:
+            print("Error: GUI mode requires tkinter, which is not available.")
+            print(f"Details: {e}")
+            print("\nPlease ensure tkinter is installed:")
+            print("  - On Debian/Ubuntu: sudo apt-get install python3-tk")
+            print("  - On Fedora: sudo dnf install python3-tkinter")
+            print("  - On macOS: tkinter should be included with Python")
+            sys.exit(1)
     else:
         # Run CLI mode
         tracker = CryptoTracker()

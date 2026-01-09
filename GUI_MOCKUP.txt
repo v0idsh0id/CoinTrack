@@ -1,0 +1,47 @@
+╔══════════════════════════════════════════════════════════════════════════════════════════════╗
+║                                                                                              ║
+║                        CoinTrack - Top 20 Cryptocurrencies                                  ║
+║                          Last Updated: 2026-01-09 11:50:00                                  ║
+║                                                                                              ║
+╠══════════════════════════════════════════════════════════════════════════════════════════════╣
+║                                                                                              ║
+║  Refresh Interval (seconds): [  60  ]  [Start Tracking]  [Refresh Once]  Status: Idle      ║
+║                                                                                              ║
+╠══════════════════════════════════════════════════════════════════════════════════════════════╣
+║ Rank │ Name                 │ Symbol │ Price         │ 24h Change │ Market Cap   │ Volume   ║
+╠══════╪══════════════════════╪════════╪═══════════════╪════════════╪══════════════╪══════════╣
+║  1   │ Bitcoin              │ BTC    │ $45,000.50    │ +2.50%     │ $880.00B     │ $28.00B  ║
+║  2   │ Ethereum             │ ETH    │ $2,800.75     │ -1.20%     │ $340.00B     │ $15.00B  ║
+║  3   │ Tether               │ USDT   │ $1.00         │ +0.01%     │ $95.00B      │ $42.00B  ║
+║  4   │ Binance Coin         │ BNB    │ $320.45       │ +3.80%     │ $49.00B      │ $1.20B   ║
+║  5   │ Solana               │ SOL    │ $105.30       │ +5.20%     │ $45.00B      │ $2.80B   ║
+║  6   │ Cardano              │ ADA    │ $0.52         │ +1.15%     │ $18.50B      │ $450.00M ║
+║  7   │ XRP                  │ XRP    │ $0.65         │ -0.75%     │ $35.00B      │ $1.80B   ║
+║  8   │ Polkadot             │ DOT    │ $7.25         │ +4.30%     │ $9.20B       │ $380.00M ║
+║  9   │ Dogecoin             │ DOGE   │ $0.08         │ +2.10%     │ $11.00B      │ $620.00M ║
+║  10  │ Avalanche            │ AVAX   │ $38.50        │ +6.75%     │ $14.20B      │ $850.00M ║
+║  ... │ ...                  │ ...    │ ...           │ ...        │ ...          │ ...      ║
+║  20  │ Uniswap              │ UNI    │ $6.80         │ -2.35%     │ $5.10B       │ $180.00M ║
+║      │                      │        │               │            │              │          ║
+║      │                      │ ▲      │               │            │              │          ║
+║      │                      │ █      │               │            │              │          ║
+║      │                      │ █      │               │            │              │          ║
+║      │                      │ █      │               │            │              │          ║
+║      │                      │ ▼      │               │            │              │          ║
+╠══════════════════════════════════════════════════════════════════════════════════════════════╣
+║                            Data source: CoinGecko API                                        ║
+╚══════════════════════════════════════════════════════════════════════════════════════════════╝
+
+Color Coding:
+  - Positive changes (e.g., +2.50%) appear in GREEN
+  - Negative changes (e.g., -1.20%) appear in RED
+  - Start Tracking button is GREEN when idle, RED when running
+  - Refresh Once button is BLUE
+
+Features:
+  • Scrollable table showing all 20 cryptocurrencies
+  • Auto-refresh with configurable interval
+  • Manual refresh with "Refresh Once" button
+  • Start/Stop controls for live tracking
+  • Real-time status updates
+  • Clean, modern interface

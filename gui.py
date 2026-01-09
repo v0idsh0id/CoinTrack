@@ -6,13 +6,14 @@ Graphical user interface for cryptocurrency price tracking.
 import tkinter as tk
 from tkinter import ttk, messagebox
 import threading
-import time
 from datetime import datetime
 from crypto_tracker import CryptoTracker
 
 
 class CryptoTrackerGUI:
     """GUI for the cryptocurrency tracker."""
+    
+    MIN_REFRESH_INTERVAL = 10  # Minimum refresh interval in seconds
     
     def __init__(self, root):
         """Initialize the GUI."""
@@ -24,6 +25,7 @@ class CryptoTrackerGUI:
         self.refresh_interval = 60
         self.is_running = False
         self.update_thread = None
+        self.stop_event = threading.Event()
         
         self.setup_ui()
         
@@ -159,14 +161,18 @@ class CryptoTrackerGUI:
             # Start tracking
             try:
                 self.refresh_interval = int(self.interval_var.get())
-                if self.refresh_interval < 10:
-                    messagebox.showwarning("Warning", "Refresh interval should be at least 10 seconds.")
+                if self.refresh_interval < self.MIN_REFRESH_INTERVAL:
+                    messagebox.showwarning(
+                        "Warning",
+                        f"Refresh interval should be at least {self.MIN_REFRESH_INTERVAL} seconds."
+                    )
                     return
             except ValueError:
                 messagebox.showerror("Error", "Please enter a valid number for refresh interval.")
                 return
             
             self.is_running = True
+            self.stop_event.clear()
             self.start_stop_btn.config(text="Stop Tracking", bg="#e74c3c")
             self.status_label.config(text="Status: Running", fg="#27ae60")
             
@@ -176,6 +182,7 @@ class CryptoTrackerGUI:
         else:
             # Stop tracking
             self.is_running = False
+            self.stop_event.set()
             self.start_stop_btn.config(text="Start Tracking", bg="#27ae60")
             self.status_label.config(text="Status: Stopped", fg="#e74c3c")
     
@@ -184,11 +191,9 @@ class CryptoTrackerGUI:
         while self.is_running:
             self.fetch_and_display()
             
-            # Wait for refresh interval
-            for _ in range(self.refresh_interval):
-                if not self.is_running:
-                    break
-                time.sleep(1)
+            # Wait for refresh interval with responsive shutdown
+            if self.stop_event.wait(self.refresh_interval):
+                break
     
     def refresh_once(self):
         """Refresh data once."""
@@ -256,6 +261,7 @@ class CryptoTrackerGUI:
     def on_closing(self):
         """Handle window closing."""
         self.is_running = False
+        self.stop_event.set()
         self.root.destroy()
 
 
