@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="description" content="Track top 20 cryptocurrencies with real-time prices, market cap, and 24h changes">
+    <meta name="theme-color" content="#1a1a2e">
+    
+    <!-- Open Graph tags for link sharing -->
+    <meta property="og:title" content="CoinTrack - Cryptocurrency Tracker">
+    <meta property="og:description" content="Track top 20 cryptocurrencies with real-time prices and market data">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="">
+    <meta property="og:image" content="favicon.svg">
+    
+    <title>CoinTrack - Cryptocurrency Tracker</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="offline-banner" class="offline-banner hidden">
+        ⚠️ You are offline. Data may be outdated.
+    </div>
+    
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <h1>
+                    <span class="logo">💰</span>
+                    CoinTrack
+                </h1>
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+                    🌙
+                </button>
+            </div>
+            <p class="subtitle">Real-time cryptocurrency market data</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="controls">
+            <div class="search-wrapper">
+                <input 
+                    type="search" 
+                    id="search-input" 
+                    class="search-input" 
+                    placeholder="Search cryptocurrencies..."
+                    aria-label="Search cryptocurrencies"
+                >
+            </div>
+            <div class="update-info">
+                <span id="last-update">Last updated: Never</span>
+                <button id="refresh-btn" class="refresh-btn" aria-label="Refresh data">🔄</button>
+            </div>
+        </div>
+
+        <div id="error-message" class="error-message hidden"></div>
+
+        <div id="loading" class="loading">
+            <div class="spinner"></div>
+            <p>Loading cryptocurrency data...</p>
+        </div>
+
+        <div id="crypto-container" class="crypto-container hidden">
+            <!-- Desktop Table View -->
+            <div class="table-wrapper">
+                <table class="crypto-table">
+                    <thead>
+                        <tr>
+                            <th data-sort="market_cap_rank"># <span class="sort-indicator"></span></th>
+                            <th data-sort="name">Name <span class="sort-indicator"></span></th>
+                            <th data-sort="current_price">Price <span class="sort-indicator"></span></th>
+                            <th data-sort="price_change_percentage_24h">24h % <span class="sort-indicator"></span></th>
+                            <th data-sort="price_change_24h">24h Change <span class="sort-indicator"></span></th>
+                            <th data-sort="price_change_percentage_7d_in_currency">7d % <span class="sort-indicator"></span></th>
+                            <th data-sort="market_cap">Market Cap <span class="sort-indicator"></span></th>
+                            <th data-sort="total_volume">Volume (24h) <span class="sort-indicator"></span></th>
+                            <th data-sort="circulating_supply">Circulating Supply <span class="sort-indicator"></span></th>
+                        </tr>
+                    </thead>
+                    <tbody id="crypto-table-body">
+                        <!-- Crypto data will be inserted here -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Mobile Card View -->
+            <div id="crypto-cards" class="crypto-cards">
+                <!-- Crypto cards will be inserted here -->
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>Data provided by <a href="https://www.coingecko.com/" target="_blank" rel="noopener">CoinGecko API</a></p>
+            <p>Auto-refreshes every 60 seconds</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
