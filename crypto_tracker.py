@@ -87,7 +87,7 @@ class CryptoTracker:
             print("No data available.")
             return
         
-        # Clear screen and print header
+        # Print header
         print("\n" + "=" * 120)
         print(f"CoinTrack - Top 20 Cryptocurrencies (Updated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')})")
         print("=" * 120)
